@@ -1,0 +1,4 @@
+# ignore node modules files
+node_modules
+# ignore yarn files
+/yarn.lock

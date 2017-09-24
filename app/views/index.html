@@ -1,0 +1,45 @@
+<!-- 页面头部 s -->
+<div class="header">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- 左上产品LOGO -->
+            <a class="navbar-brand visible-xs-inline-block" ui-sref="main.home">表单验证</a>
+            <a class="navbar-brand navbar-logo pdt12" ui-sref="main.home">
+                <div class="logo-icon" style="margin-top: -5px;">
+                    <img class="hidden-xs" src="src/images/logo.png" width="100%" alt="LOGO">
+                </div>
+            </a>
+            <!-- 收起状态下的导航 -->
+            <div class="navbar-header">
+                <a role="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#J_fixedNavbar" aria-expanded="false">
+                    <span class="sr-only">收起后的导航（三）</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+            </div>
+            <!-- 导航主体 s -->
+            <div id="J_fixedNavbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li ui-sref-active="active" ng-repeat="(k,v) in state.tabOpts">
+                        <a ui-sref="{{v}}" ng-bind="k"></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- 导航主体 e -->
+        </div>
+    </nav>
+</div>
+<!-- 页面头部 e -->
+<!-- 页面主体 s -->
+<div class="panel panel-default panel-adjust">
+    <div class="panel-heading">
+        <h3 class="panel-title" ng-bind="state.titles[state.pathStr]"></h3>
+    </div>
+    <div class="panel-body">
+        <div class="row pd20">
+            <ui-view></ui-view>
+        </div>
+    </div>
+</div>
+<!-- 页面主体 e -->

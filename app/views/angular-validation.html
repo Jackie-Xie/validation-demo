@@ -1,0 +1,173 @@
+<!-- angular validation s -->
+<form class="form-horizontal" name="myForm" novalidate>
+    <div class="form-group mg0">
+        <label for="userName" class="col-sm-2 control-label"><span class="is-required">*</span> 用户名</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="userName" id="userName" ng-model="userForm.userName" placeholder="请输入3-20位数字、字母和中文组合" name-valid ng-minlength="3" ng-maxlength="20" required>
+            <div class="error-section">
+                <!-- {{myForm.userName.$error}} -->
+                <div ng-if="myForm.userName.$dirty">
+                    <span ng-if="myForm.userName.$error.required">用户名不能为空</span>
+                    <span ng-if="myForm.userName.$error.minlength || myForm.userName.$error.maxlength">用户名为3-20位</span>
+                    <span ng-if="myForm.userName.$error.format">用户名只含有数字、字母和中文</span>
+                    <span ng-if="myForm.userName.$error.exist">用户名已存在</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group mg0 has-feedback" ng-class="{'has-success':myForm.nick.$dirty && myForm.nick.$valid,'has-error':myForm.nick.$dirty && myForm.nick.$invalid}">
+        <label for="nick" class="col-sm-2 control-label"><span class="is-required">*</span> 昵称</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="nick" id="nick" ng-model="userForm.nick" placeholder="请输入4-16位" minlength="4" maxlength="16" required>
+            <!-- 验证通过和不通过标志 s -->
+            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true" ng-if="myForm.nick.$dirty && myForm.nick.$valid"></span>
+            <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" ng-if="myForm.nick.$dirty && myForm.nick.$invalid"></span>
+            <!-- 验证通过和不通过标志 e -->
+            <div class="error-section">
+                <div ng-if="myForm.nick.$dirty">
+                    <span ng-if="myForm.nick.$error.required">昵称不能为空</span>
+                    <span ng-if="myForm.nick.$error.minlength || myForm.nick.$error.maxlength">昵称为4-16位</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group mg0">
+        <label for="pwd" class="col-sm-2 control-label"><span class="is-required">*</span> 密码</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" name="pwd" id="pwd" placeholder="请输入8-25位数字和字母的组合" ng-model="userForm.pwd" ng-pattern="state.pwdReg" required>
+            <div class="error-section">
+                <div ng-if="myForm.pwd.$dirty">
+                    <span ng-if="myForm.pwd.$error.required">密码不能为空</span>
+                    <span ng-if="myForm.pwd.$error.pattern">密码为8-25位数字和字母的组合</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group mg0">
+        <label for="repeatPwd" class="col-sm-2 control-label"><span class="is-required">*</span> 确认密码</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" name="repeatPwd" id="repeatPwd" placeholder="请再次输入密码" ng-model="userForm.repeatPwd" ng-pattern="state.pwdReg" required equal-to="pwd">
+            <div class="error-section">
+                <div ng-if="myForm.repeatPwd.$dirty">
+                    <span ng-if="myForm.repeatPwd.$error.required">密码不能为空</span>
+                    <span ng-if="myForm.repeatPwd.$error.pattern">密码为8-25位数字和字母的组合</span>
+                    <span ng-if="myForm.repeatPwd.$error.equalTo">两次密码不一致</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group mg0">
+        <label for="email" class="col-sm-2 control-label"><span class="is-required">*</span> 邮箱地址</label>
+        <div class="col-sm-10">
+            <input type="email" class="form-control" name="email" id="email" placeholder="请输入邮箱地址" ng-model="userForm.email" required>
+            <div class="error-section">
+                <!-- {{myForm.email.$error}} -->
+                <div ng-if="myForm.email.$dirty">
+                    <span ng-if="myForm.email.$error.required">邮箱地址不能为空</span>
+                    <span ng-if="myForm.email.$error.email">邮箱地址格式不对</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group mg0">
+        <label for="email" class="col-sm-2 control-label"><span class="is-required">*</span> 数字</label>
+        <div class="col-sm-10">
+            <input type="number" class="form-control" name="number" id="number" placeholder="请输入2-12的数字" ng-min="2" max="12" ng-model="userForm.number" required>
+            <div class="error-section">
+                <!-- {{myForm.number.$error}} -->
+                <div ng-if="myForm.number.$dirty">
+                    <span ng-if="myForm.number.$error.required">数字不能为空</span>
+                    <!-- <span ng-if="myForm.number.$error.number">请输入数字</span> -->
+                    <span ng-if="myForm.number.$error.min">请输入大于2的数字</span>
+                    <span ng-if="myForm.number.$error.max">请输入小于12的数字</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group mg0">
+        <label for="url" class="col-sm-2 control-label"><span class="is-required">*</span> URL</label>
+        <div class="col-sm-10">
+            <input type="url" class="form-control" name="url" id="url" placeholder="请输入URL地址" ng-model="userForm.url" ng-minlength="4" required>
+            <div class="error-section">
+                <!-- {{myForm.url.$error}} -->
+                <div ng-if="myForm.url.$dirty" ng-messages="myForm.url.$error" ng-messages-multiple>
+                    <span ng-message="required">URL不能为空</span>
+                    <span ng-message="minlength">URL长度不够</span>
+                    <span ng-message="url">URL格式不对</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group mg0">
+        <label for="phone" class="col-sm-2 control-label"><span class="is-required">*</span> 联系方式</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" name="phone" id="phone" placeholder="请输入11位手机号码或者区号-号码" ng-model="userForm.phone" ng-pattern="state.phoneReg" ng-minlength="11" required>
+            <div class="error-section">
+                <div ng-if="myForm.phone.$dirty">
+                    <ng-messages for="myForm.phone.$error" multiple>
+                        <ng-message when="required">联系方式不能为空</ng-message>
+                        <ng-message when="minlength">联系方式位数不对</ng-message>
+                        <ng-message when="pattern">联系方式格式不对</ng-message>
+                    </ng-messages>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="form-group mg0">
+        <label for="construct" class="col-sm-2 control-label"><span class="is-required">*</span> 用户权限</label>
+        <div class="col-sm-10">
+            <label class="col-lg-4 checkbox-inline pdr0" style="margin:0;" ng-repeat="item in state.roleOptions" ng-cloak>
+                <input type="checkbox" name="roles" ng-value="item.id" ng-checked="item._status == true" ng-click="changeSelected(item)" ng-required="state.selectedNum==0"> {{item.cnName}}
+            </label>
+            <div class="col-lg-12 pd0 error-section">
+                <div ng-if="1==1">
+                    <span ng-if="myForm.roles.required">请至少选择一个用户权限</span>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <div class="form-group mg0">
+        <label for="construct" class="col-sm-2 control-label"><span class="is-required">*</span> 用户权限</label>
+        <div class="col-sm-10">
+            <label class="col-lg-4 checkbox-inline pdr0" style="margin:0;" ng-repeat="item in state.roleOptions" ng-cloak>
+                <input type="checkbox" name="roles" ng-value="item.id" ng-checked="item._status == true" ng-click="changeSelected(item)"> {{item.cnName}}
+            </label>
+            <div class="col-lg-12 pd0 error-section">
+                <div ng-if="state.$dirty">
+                    <span ng-if="state.selectedNum==0">请至少选择一个用户权限</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group mg0">
+        <label for="construct" class="col-sm-2 control-label"><span class="is-required">*</span> 自我介绍</label>
+        <div class="col-sm-10">
+            <textarea class="form-control" name="construct" id="construct" rows="4" placeholder="请输入不超过200位" ng-model="userForm.construct" ng-maxlength="200" required></textarea>
+            <div class="error-section">
+                <div ng-if="myForm.construct.$dirty" ng-messages="myForm.construct.$error">
+                    <div ng-messages-include="views/error.html"></div>
+                    <!-- <div ng-messages-include="error-messages"></div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <!-- <button type="submit" class="btn btn-success btn-block" ng-click="clickNgVerify($event)">验证</button> -->
+            <button type="submit" class="btn btn-success btn-block" ng-disabled="myForm.$dirty && ( myForm.userName.$invalid
+                                                                                    || myForm.nick.$invalid
+                                                                                    || myForm.pwd.$invalid
+                                                                                    || myForm.repeatPwd.$invalid
+                                                                                    || myForm.email.$invalid
+                                                                                    || myForm.number.$invalid
+                                                                                    || myForm.url.$invalid
+                                                                                    || myForm.phone.$invalid
+                                                                                    || myForm.construct.$invalid )" ng-click="clickNgVerify($event)">验证</button>
+        </div>
+    </div>
+</form>
+<!-- angular validation e -->
+<script type="text/ng-template" id="error-messages">
+    <span ng-message="required">自我介绍必填</span>
+    <span ng-message="maxlength">自我介绍长度不超过200个字</span>
+</script>

@@ -1,0 +1,107 @@
+<!-- self validation s -->
+<form class="form-horizontal" novalidate>
+    <div class="form-group mg0 has-feedback" ng-class="{'has-success':valid.userName.dirty && valid.userName.ok,'has-error':valid.userName.dirty && !valid.userName.ok}">
+        <label for="j_username" class="col-sm-2 control-label">
+            <span class="is-required">*</span>
+            用户名
+        </label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="j_username" ng-model="userForm.userName" autocomplete="off" placeholder="请输入不超过20位且无特殊字符" ng-change="valid.do({'userName':'validUserName'},this)">
+            <!-- 验证通过和不通过标志 s -->
+            <span class="sys-icon-ok form-control-feedback" aria-hidden="true" ng-if="valid.userName.dirty && valid.userName.ok"></span>
+            <span class="sys-icon-error form-control-feedback" aria-hidden="true" ng-if="valid.userName.dirty && !valid.userName.ok"></span>
+            <!-- 验证通过和不通过标志 e -->
+            <div class="error-section">
+                <span ng-if="valid.userName.dirty && valid.userName.err !== ''" ng-bind="valid.userName.err"></span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group mg0 has-feedback" ng-class="{'has-success':valid.pwd.dirty && valid.pwd.ok,'has-error':valid.pwd.dirty && !valid.pwd.ok}">
+        <label for="j_password" class="col-sm-2 control-label">
+            <span class="is-required">*</span>
+            密码
+        </label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" id="j_password" ng-model="userForm.pwd" autocomplete="off" placeholder="请输入8-25位数字和字母组合" ng-change="valid.do({'pwd':'validPwd'},this)">
+            <!-- 验证通过和不通过标志 s -->
+            <span class="sys-icon-ok form-control-feedback" aria-hidden="true" ng-if="valid.pwd.dirty && valid.pwd.ok"></span>
+            <span class="sys-icon-error form-control-feedback" aria-hidden="true" ng-if="valid.pwd.dirty && !valid.pwd.ok"></span>
+            <!-- 验证通过和不通过标志 e -->
+            <div class="error-section">
+                <span ng-if="valid.pwd.dirty && valid.pwd.err !== ''" ng-bind="valid.pwd.err"></span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group mg0 has-feedback" ng-class="{'has-success':valid.repeatPwd.dirty && valid.repeatPwd.ok,'has-error':valid.repeatPwd.dirty && !valid.repeatPwd.ok}">
+        <label for="j_repassword" class="col-sm-2 control-label">
+            <span class="is-required">*</span>
+            确认密码
+        </label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" id="j_repassword" ng-model="userForm.repeatPwd" autocomplete="off" placeholder="请再次输入密码" ng-change="valid.do({'repeatPwd':'validRepeatPwd'},this)">
+            <!-- 验证通过和不通过标志 s -->
+            <span class="sys-icon-ok form-control-feedback" aria-hidden="true" ng-if="valid.repeatPwd.dirty && valid.repeatPwd.ok"></span>
+            <span class="sys-icon-error form-control-feedback" aria-hidden="true" ng-if="valid.repeatPwd.dirty && !valid.repeatPwd.ok"></span>
+            <!-- 验证通过和不通过标志 e -->
+            <div class="error-section">
+                <span ng-if="valid.repeatPwd.dirty && valid.repeatPwd.err !== ''" ng-bind="valid.repeatPwd.err"></span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group mg0 has-feedback" ng-class="{'has-success':valid.email.dirty && valid.email.ok,'has-error':valid.email.dirty && !valid.email.ok}">
+        <label for="j_email" class="col-sm-2 control-label">
+            <span class="is-required">*</span>
+            邮箱地址
+        </label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="j_email" ng-model="userForm.email" autocomplete="off" placeholder="请输入正确的邮箱地址" ng-change="valid.do({'email':'validEmail'},this)">
+            <!-- 验证通过和不通过标志 s -->
+            <span class="sys-icon-ok form-control-feedback" aria-hidden="true" ng-if="valid.email.dirty && valid.email.ok"></span>
+            <span class="sys-icon-error form-control-feedback" aria-hidden="true" ng-if="valid.email.dirty && !valid.email.ok"></span>
+            <!-- 验证通过和不通过标志 e -->
+            <div class="error-section">
+                <span ng-if="valid.email.dirty && valid.email.err !== ''" ng-bind="valid.email.err"></span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group mg0 has-feedback" ng-class="{'has-success':valid.phone.dirty && valid.phone.ok,'has-error':valid.phone.dirty && !valid.phone.ok}">
+        <label for="j_phone" class="col-sm-2 control-label">
+            <span class="is-required">*</span>
+            手机号码
+        </label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="j_phone" ng-model="userForm.phone" autocomplete="off" placeholder="请输入11位手机号码或者区号-号码" ng-change="valid.do({'phone':'validPhone'},this)">
+            <!-- 验证通过和不通过标志 s -->
+            <span class="sys-icon-ok form-control-feedback" aria-hidden="true" ng-if="valid.phone.dirty && valid.phone.ok"></span>
+            <span class="sys-icon-error form-control-feedback" aria-hidden="true" ng-if="valid.phone.dirty && !valid.phone.ok"></span>
+            <!-- 验证通过和不通过标志 e -->
+            <div class="error-section">
+                <span ng-if="valid.phone.dirty && valid.phone.err !== ''" ng-bind="valid.phone.err"></span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group mg0">
+        <label class="col-sm-2 control-label">
+            <span class="is-required">*</span>
+            用户权限
+        </label>
+        <div class="col-sm-10">
+            <label class="col-sm-4 checkbox-inline" style="margin:0;" ng-repeat="item in state.roleOptions" ng-cloak>
+                <input type="checkbox" name="roles" ng-value="item.id" ng-checked="item._status == true" ng-click="validRole(item)"> {{item.cnName}}
+            </label>
+            <!-- 验证通过和不通过标志 s -->
+            <span class="sys-icon-ok form-control-feedback" aria-hidden="true" ng-if="valid.role.dirty && valid.role.ok"></span>
+            <span class="sys-icon-error form-control-feedback" aria-hidden="true" ng-if="valid.role.dirty && !valid.role.ok"></span>
+            <!-- 验证通过和不通过标志 e -->
+            <div class="col-sm-12 pd0 error-section">
+                <div ng-if="valid.role.dirty && valid.role.err !== ''" ng-bind="valid.role.err"></div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-success btn-block" ng-click="clickVerify($event)">验证</button>
+        </div>
+    </div>
+</form>
+<!-- self validation e -->

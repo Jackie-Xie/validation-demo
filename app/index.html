@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>validation-demo</title>
+    <link rel="stylesheet" href="src/css/lib/bootstrap_3.3.6.min.css">
+    <link rel="stylesheet" href="src/js/plugins/formvalidation/css/formValidation.min.css">
+    <link rel="stylesheet" href="src/css/main.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <style>
+
+    </style>
+</head>
+
+<body ng-app="myApp">
+    <!--[if lt IE 9]>
+    <div class="alert alert-info text-center" role="alert" >
+        由于本系统不兼容IE部分版本，为能达到使用效果，请使用谷歌CHROME或火狐FIREFOX浏览器打开本页面。
+    </div>
+    <![endif]-->
+    <div class="container">
+        <ui-view></ui-view>
+    </div>
+
+    <!-- lib js files s -->
+    <script src="src/js/lib/jquery_2.1.4/jquery.min.js"></script>
+    <script src="src/js/lib/bootstrap_3.3.6/bootstrap.min.js"></script>
+    <script src="src/js/lib/angular_1.5.11/angular.min.js"></script>
+    <script src="src/js/lib/angular-messages/angular-messages.min.js"></script>
+    <script src="src/js/lib/ui-router/angular-ui-router.js"></script>
+    <script src="src/js/mock/mock.js"></script>
+    <!-- lib js files e -->
+
+    <!-- common js file s -->
+    <script src="src/js/app.js"></script>
+    <script src="src/js/controllers/index.js"></script>
+    <!-- common js file e -->
+
+    <!-- service s -->
+    <script src="src/js/services/autoValid.js"></script>
+    <!-- service e -->
+
+    <!-- directive s -->
+    <script src="src/js/directives/validDirective.js"></script>
+    <!-- directive e -->
+
+    <!-- plugin s -->
+    <script src="src/js/plugins/jquery-validate_1.17.0/jquery.validate.js"></script>
+    <script src="src/js/plugins/jquery-validate_1.17.0/additional-methods.js"></script>
+    <script src="src/js/plugins/jquery-validate_1.17.0/localization/messages_zh.js"></script>
+
+    <script src="src/js/plugins/formvalidation/js/formValidation.js"></script>
+    <script src="src/js/plugins/formvalidation/js/framework/bootstrap.js"></script>
+    <script src="src/js/plugins/formvalidation/js/language/zh_CN.js"></script>
+    <!-- plugin e -->
+
+    <!-- Controller s -->
+    <script src="src/js/controllers/ngValidCtrl.js"></script>
+    <script src="src/js/controllers/formValidCtrl.js"></script>
+    <script src="src/js/controllers/jqValidCtrl.js"></script>
+    <!-- Controller e -->
+
+    <!-- mock data s -->
+    <script src="src/data/mockData.js"></script>
+
+</body>
+
+</html>

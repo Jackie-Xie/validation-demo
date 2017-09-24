@@ -1,0 +1,13 @@
+{
+  "name": "validate_demo",
+  "version": "1.0.0",
+  "description": "demo about validation",
+  "main": " ",
+  "author": "xieq",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-webserver": "^0.9.1"
+  }
+}
