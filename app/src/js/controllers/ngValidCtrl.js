@@ -80,7 +80,7 @@ angular.module('myApp')
 
             it.removeClass('disabled');
             // todo something
-            return $scope.valid.do($scope.state.addObj, $scope);
+            return $scope.valid.autoValid($scope.state.addObj, $scope);
         };
 
         // 获取所有用户名

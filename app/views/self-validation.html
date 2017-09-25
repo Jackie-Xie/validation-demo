@@ -6,7 +6,7 @@
             用户名
         </label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="j_username" ng-model="userForm.userName" autocomplete="off" placeholder="请输入不超过20位且无特殊字符" ng-change="valid.do({'userName':'validUserName'},this)">
+            <input type="text" class="form-control" id="j_username" ng-model="userForm.userName" autocomplete="off" placeholder="请输入不超过20位且无特殊字符" ng-change="valid.autoValid({'userName':'validUserName'},this)">
             <!-- 验证通过和不通过标志 s -->
             <span class="sys-icon-ok form-control-feedback" aria-hidden="true" ng-if="valid.userName.dirty && valid.userName.ok"></span>
             <span class="sys-icon-error form-control-feedback" aria-hidden="true" ng-if="valid.userName.dirty && !valid.userName.ok"></span>
@@ -22,7 +22,7 @@
             密码
         </label>
         <div class="col-sm-10">
-            <input type="password" class="form-control" id="j_password" ng-model="userForm.pwd" autocomplete="off" placeholder="请输入8-25位数字和字母组合" ng-change="valid.do({'pwd':'validPwd'},this)">
+            <input type="password" class="form-control" id="j_password" ng-model="userForm.pwd" autocomplete="off" placeholder="请输入8-25位数字和字母组合" ng-change="valid.autoValid({'pwd':'validPwd'},this)">
             <!-- 验证通过和不通过标志 s -->
             <span class="sys-icon-ok form-control-feedback" aria-hidden="true" ng-if="valid.pwd.dirty && valid.pwd.ok"></span>
             <span class="sys-icon-error form-control-feedback" aria-hidden="true" ng-if="valid.pwd.dirty && !valid.pwd.ok"></span>
@@ -38,7 +38,7 @@
             确认密码
         </label>
         <div class="col-sm-10">
-            <input type="password" class="form-control" id="j_repassword" ng-model="userForm.repeatPwd" autocomplete="off" placeholder="请再次输入密码" ng-change="valid.do({'repeatPwd':'validRepeatPwd'},this)">
+            <input type="password" class="form-control" id="j_repassword" ng-model="userForm.repeatPwd" autocomplete="off" placeholder="请再次输入密码" ng-change="valid.autoValid({'repeatPwd':'validRepeatPwd'},this)">
             <!-- 验证通过和不通过标志 s -->
             <span class="sys-icon-ok form-control-feedback" aria-hidden="true" ng-if="valid.repeatPwd.dirty && valid.repeatPwd.ok"></span>
             <span class="sys-icon-error form-control-feedback" aria-hidden="true" ng-if="valid.repeatPwd.dirty && !valid.repeatPwd.ok"></span>
@@ -54,7 +54,7 @@
             邮箱地址
         </label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="j_email" ng-model="userForm.email" autocomplete="off" placeholder="请输入正确的邮箱地址" ng-change="valid.do({'email':'validEmail'},this)">
+            <input type="text" class="form-control" id="j_email" ng-model="userForm.email" autocomplete="off" placeholder="请输入正确的邮箱地址" ng-change="valid.autoValid({'email':'validEmail'},this)">
             <!-- 验证通过和不通过标志 s -->
             <span class="sys-icon-ok form-control-feedback" aria-hidden="true" ng-if="valid.email.dirty && valid.email.ok"></span>
             <span class="sys-icon-error form-control-feedback" aria-hidden="true" ng-if="valid.email.dirty && !valid.email.ok"></span>
@@ -70,7 +70,7 @@
             手机号码
         </label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="j_phone" ng-model="userForm.phone" autocomplete="off" placeholder="请输入11位手机号码或者区号-号码" ng-change="valid.do({'phone':'validPhone'},this)">
+            <input type="text" class="form-control" id="j_phone" ng-model="userForm.phone" autocomplete="off" placeholder="请输入11位手机号码或者区号-号码" ng-change="valid.autoValid({'phone':'validPhone'},this)">
             <!-- 验证通过和不通过标志 s -->
             <span class="sys-icon-ok form-control-feedback" aria-hidden="true" ng-if="valid.phone.dirty && valid.phone.ok"></span>
             <span class="sys-icon-error form-control-feedback" aria-hidden="true" ng-if="valid.phone.dirty && !valid.phone.ok"></span>

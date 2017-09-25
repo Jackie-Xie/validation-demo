@@ -81,7 +81,7 @@ angular.module('myApp')
          * @param {plain object} obj: { '属性': '对应验证方法' }
          * @param {plain object} scope: 当前作用域
          */
-        this.do = function(obj, scope) {
+        this.autoValid = function(obj, scope) {
             var flag = true;
             for (var i in obj) {
                 flag = self._doOne(i, obj[i], scope);
